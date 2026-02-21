@@ -111,6 +111,14 @@ static XrmOption xrmOptions[] = {
         "Available layers are background, bottom, top, overlay.",
     },
     {
+    	xrm_String,
+     	CONFIG_DEFAULT,
+     	"wayland-namespace",
+        {.str = &config.wayland_namespace},
+        NULL,
+        "On Wayland, allows to customize namespace on a layer. Default is rofi.",
+    },
+    {
         xrm_SNumber,
         CONFIG_DEFAULT,
         "yoffset",

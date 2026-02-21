@@ -106,6 +106,8 @@ typedef struct {
 
   /** Wayland layer */
   char *wayland_layer;
+  /** Wayland layer namespace */
+  char *wayland_namespace;
   /** Windows location/gravity */
   WindowLocation location;
   /** Y offset */

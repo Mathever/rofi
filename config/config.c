@@ -93,6 +93,10 @@ Settings config = {
      * `background`, `bottom`, `top`, `overlay`. The default layer is `overlay`.
      */
     .wayland_layer = "overlay",
+    /**
+     * On Wayland, allows to customize namespace on a layer. Default is rofi.
+     */
+    .wayland_namespace = "rofi",
     /** Y offset */
     .y_offset = 0,
     /** X offset */

@@ -1712,8 +1712,14 @@ static gboolean wayland_display_late_setup(void) {
     layer = ZWLR_LAYER_SHELL_V1_LAYER_OVERLAY;
     g_warning("Unknown wayland layer: %s, using default overlay", config.wayland_layer);
   }
-  wayland->wlr_surface = zwlr_layer_shell_v1_get_layer_surface(
+
+  if (strcmp(config.wayland_namespace, "rofi") != 0) {
+    wayland->wlr_surface = zwlr_layer_shell_v1_get_layer_surface(
+      wayland->layer_shell, wayland->surface, wlo, layer, config.wayland_namespace);
+  } else {
+    wayland->wlr_surface = zwlr_layer_shell_v1_get_layer_surface(
       wayland->layer_shell, wayland->surface, wlo, layer, "rofi");
+  }
 
   // Set size zero and anchor on all corners to get the usable screen size
   // see https://github.com/swaywm/wlroots/pull/2422
